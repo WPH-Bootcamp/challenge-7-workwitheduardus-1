@@ -17,7 +17,7 @@ export function isTodo(obj: unknown): obj is Todo {
     );
 }
 
-export function isTodoStatus(data: unknown): data is Todo[] {
+export function isTodoArray(data: unknown): data is Todo[] {
     if (!Array.isArray(data)) {
         return false;
     }
@@ -25,5 +25,16 @@ export function isTodoStatus(data: unknown): data is Todo[] {
     return data.every(isTodo);
 }
 // TODO: Buat fungsi helper untuk menampilkan tanggal/waktu dengan format yang bagus
-
+export function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
+}
 // TODO: Buat fungsi untuk memastikan input dari user adalah string yang valid
+export function isValidString(input: unknown):
+input is string {
+    return typeof input === "string" && input.trim().length > 0;}
