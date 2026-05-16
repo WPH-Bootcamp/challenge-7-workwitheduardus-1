@@ -16,3 +16,4 @@ export type AddTodoFunction = (text: string) => Todo;
 export type CompleteToFoFunction = (id: number) => Todo | null;
 export type DeleteTodoFunction = (id: number) => boolean;
 export type ListTodosFunction = () => Todo[];
+export type SearchTodosFunction = (keyword: string) => Todo[];
