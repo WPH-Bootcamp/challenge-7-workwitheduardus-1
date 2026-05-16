@@ -1,8 +1,20 @@
 // TODO: Import readline untuk membaca input dari command line
-
+import * as readline from 'readline';
 // TODO: Import fungsi-fungsi dari todoService
-
+import { addTodo,
+    completeTodo,
+    deleteTodo,
+    displayTodos,
+    listTodos,
+ } from "./todoService";
 // TODO: Import fungsi-fungsi dari utils (termasuk type guards)
+import { isValidString } from "./utils";
+import { initStorage } from './storage';
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 // TODO: Buat fungsi untuk menampilkan menu utama
 // Tampilkan opsi seperti:
